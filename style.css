@@ -46,3 +46,77 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(37, 37, 37);
 }
+
+.hr {
+    border-style: solid;
+    border-width: 03px;
+    border-color: rgb(155, 126, 90);
+}
+
+.tip-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background-color: olivedrab;
+    width: 100px;
+    height: 50px;
+    border-style: none;
+    border-radius: 10px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.tip-btn:not(.active):hover {
+    background-color: darkolivegreen;
+    border-color: darkolivegreen;
+    transform: translateY(-2px);
+}
+
+.tip-btn.active {
+    background-color: limegreen;
+    color: white;
+    border-color: green;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(46,204, 113, 0.4);
+    cursor: default;
+}
+
+.input-group-valor {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f5;
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.currency-symbol {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+    margin-right: 10px;
+}
+
+#totalConta {
+    width: 100;
+    border: none;
+    background:rgb(37, 37, 37);
+    border-radius: 40px;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    color: white;
+    outline: none;
+    text-align: center;
+}
+
+
