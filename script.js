@@ -1,19 +1,32 @@
-const btnCalcular = document.querySelector("#calcular");
-
-btnCalcular.addEventListener("click", () => {
-    const conta = parseFloat(document.querySelector("#totalConta").value);
-    const taxa = parseFloat(document.querySelector("#porcentagemGorjeta").value);
-
+const inputConta = document.querySelector("#totalConta");
+const selectGorjeta = document.querySelector("#porcentagemGorjeta");
+const displayGorjeta = document.querySelector("#valorGorjeta");
+const displayTotal = document.querySelector("#totalFinal");
+const divResultado = document.querySelector("#resultado");
+function atualizarCalculo() {
+    const conta = parseFloat(inputConta.value);
+    const taxa = parseFloat(selectGorjeta.value);
+    
     if (isNaN(conta) || conta <= 0) {
-        alert("Por favor, insira um valor válido para a conta.");
+        divResultado.classList.add("hidden");
         return;
     }
 
-    const gorjetaTotal = conta * taxa;
-    const contaTotal = conta + gorjetaTotal;
+    const valorGorjeta = conta * taxa;
+    const valorTotal = conta + valorGorjeta;
 
+    const formatar = (valor) => {
+        return valor.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+    };
 
-    document.querySelector("#valorGorjeta").innerText = gorjetaTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    displayGorjeta.innerText = formatar(valorGorjeta);
+    displayTotal.innerText = formatar(valorTotal);
 
-    document.querySelector("#resultado").classList.remove("hidden");
-});
+    divResultado.classList.remove("hidden");
+}
+
+inputConta.addEventListener("input", atualizarCalculo);
+selectGorjeta.addEventListener("change", atualizarCalculo);
